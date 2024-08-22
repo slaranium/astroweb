@@ -1,0 +1,59 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="About Me | StringLabs">
+    <section style="text-align: center; color: #fff; padding: 50px 20px;">
+        <!-- Logo -->
+        <img src="/images/stringlogo.png" alt="StringLabs Logo" style="max-width: 250px; margin-bottom: 20px;">
+
+        <h1 style="font-size: 3rem; color: #00FF00; margin-bottom: 20px;">About me</h1>
+        <h2 style="font-size: 1.5rem; color: #ccc; margin-bottom: 50px;">StringLabs Validator</h2>
+        <div style="max-width: 800px; margin: 0 auto; padding: 20px; color: #bbb; border-top: 2px solid #00FF00; border-bottom: 2px solid #00FF00;">
+            <p>Your reliable partner in ensuring the security and efficiency of blockchain networks.</p>
+            <p>In Stringlabs, we specialize in providing robust and trustworthy node validation services that are critical for the stability and integrity of decentralized systems.</p>
+        </div>
+    </section>
+
+    <!-- Formulir Kontak -->
+    <section style="text-align: center; color: #fff; padding: 50px 20px;">
+        <h2 style="font-size: 2rem; color: #fff; margin-bottom: 20px;">Contact Us</h2>
+        <p style="color: #bbb; margin-bottom: 40px;">For any questions regarding our services, please fill out this form or contact us directly via the contact listed.</p>
+        <form id="contactForm" style="max-width: 600px; margin: 0 auto; background-color: #121212; padding: 30px; border-radius: 10px;" onsubmit="sendEmail(event)">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                <div style="flex: 1; margin-right: 0px;">
+                    <label for="name" style="display: block; color: #bbb; margin-bottom: 10px;">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required style="width: 100%; padding: 15px; border: 2px solid #00FF00; border-radius: 5px; background-color: #1b1b1b; color: #fff;">
+                </div>
+                <div style="flex: 1; margin-left: 100px;">
+                    <label for="email" style="display: block; color: #bbb; margin-bottom: 10px;">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your email" required style="width: 100%; padding: 15px; border: 2px solid #00FF00; border-radius: 5px; background-color: #1b1b1b; color: #fff;">
+                </div>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="subject" style="display: block; color: #bbb; margin-bottom: 10px;">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required style="width: 100%; padding: 15px; border: 2px solid #00FF00; border-radius: 5px; background-color: #1b1b1b; color: #fff;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="message" style="display: block; color: #bbb; margin-bottom: 10px;">Message</label>
+                <textarea id="message" name="message" placeholder="Your message" rows="5" required style="width: 100%; padding: 15px; border: 2px solid #00FF00; border-radius: 5px; background-color: #1b1b1b; color: #fff;"></textarea>
+            </div>
+            <button type="submit" style="background-color: #00FF00; color: #000; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Send message</button>
+        </form>
+    </section>
+
+    <script>
+        function sendEmail(event: Event) {
+            event.preventDefault(); // Mencegah pengiriman form secara default
+
+            const name = (document.getElementById('name') as HTMLInputElement).value;
+            const email = (document.getElementById('email') as HTMLInputElement).value;
+            const subject = (document.getElementById('subject') as HTMLInputElement).value;
+            const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+
+            const mailtoLink = `mailto:haloslaranium@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
+
+            window.location.href = mailtoLink;
+        }
+    </script>
+</MainLayout>

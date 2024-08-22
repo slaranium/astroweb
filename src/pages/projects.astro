@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/MainLayout.astro';
+
+const projects = [
+    {
+        title: 'Sound Accessories Shop',
+        description: 'An e-commerce purchase audio accessories. Features included add,...',
+        tags: ['Next.js', 'Sanity'],
+        image: '/path/to/image1.png'
+    },
+    {
+        title: 'Sistem Informasi Akademik',
+        description: 'Sistem informasi akademik untuk manajemen data mahasiswa.',
+        tags: ['Next.js', 'Tailwind', 'MongoDB'],
+        image: '/path/to/image2.png'
+    },
+    {
+        title: 'ESP32 Room Monitoring System',
+        description: 'An IoT monitoring system using ESP32 microcontroller, Firebase, and React.',
+        tags: ['React', 'Firebase', 'ESP32'],
+        image: '/path/to/image3.png'
+    },
+    {
+        title: 'Camerazi Redesign',
+        description: 'Redesigning Camerazi website provided by papaya coders for...',
+        tags: ['React', 'Bootstrap'],
+        image: '/path/to/image4.png'
+    },
+    {
+        title: 'Old Website Portfolio',
+        description: 'My old personal website portfolio built with React.',
+        tags: ['React'],
+        image: '/path/to/image5.png'
+    },
+    {
+        title: 'Medium Clone',
+        description: 'This project is a simple medium clone that has a feature to add post and...',
+        tags: ['Next.js', 'Sanity'],
+        image: '/path/to/image6.png'
+    },
+];
+
+const networks = [
+    { name: 'Symphony', category: 'Mainnet', serviceLink: '#', explorerLink: '#', logo: '/images/symphoni.jpg' },
+    { name: 'Dill', category: 'Testnet', serviceLink: '#', explorerLink: '#', logo: '/images/dill.jpg' },
+    { name: 'Chainbase', category: 'Archive', serviceLink: '#', explorerLink: '#', logo: '/images/chainbase.jpg' },
+    { name: 'Project X', category: 'Mainnet', serviceLink: '#', explorerLink: '#', logo: '/images/project-x.jpg' },
+    { name: 'Project Y', category: 'Testnet', serviceLink: '#', explorerLink: '#', logo: '/images/project-y.jpg' },
+    { name: 'Project Z', category: 'Archive', serviceLink: '#', explorerLink: '#', logo: '/images/project-z.jpg' },
+    { name: 'New Project', category: 'Mainnet', serviceLink: '#', explorerLink: '#', logo: '/images/new-project.jpg' }
+];
+---
+
+<Layout title="Projects | StringLabs">
+    {/* <section style="text-align: center; padding: 100px 20px;">
+        <h1 style="color: #fff;">Projects</h1>
+        <p style="color: #bbb;">Collection of projects that we have worked on as my practice</p>
+    </section>
+
+    <section style="display: flex; justify-content: center; padding: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            {projects.map((project) => (
+                <div style="background-color: #222; padding: 10px; border-radius: 10px; height: 200px; width: 200px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h2 style="color: #fff; font-size: 1rem; margin-bottom: 10px;">{project.title}</h2>
+                        <div style="display: flex; gap: 5px;">
+                            {project.tags.map((tag) => (
+                                <span style="background-color: #333; color: #fff; padding: 3px 5px; border-radius: 5px; font-size: 0.75rem;">{tag}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <img src={project.image} alt={project.title} style="width: 100%; height: 100px; border-radius: 10px; object-fit: cover;" />
+                </div>
+            ))}
+        </div>
+    </section> */}
+
+    <!-- Section for displaying Our Networks -->
+    <section style="text-align: center; padding: 100px 20px; font-family: 'Arial', sans-serif;">
+        <h1 style="color: #fff;">Our Networks</h1>
+        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px; margin-bottom: 50px;"> <!-- Menambahkan margin-bottom: 50px -->
+            <button class="tab-btn active" data-tab="all" style="background-color: #333; color: #fff; padding: 10px 20px; border: none; border-radius: 5px;">
+                <i class="fas fa-globe" style="margin-right: 8px;"></i>All
+            </button>
+            <button class="tab-btn" data-tab="Mainnet" style="background-color: #333; color: #fff; padding: 10px 20px; border: none; border-radius: 5px;">
+                <i class="fas fa-link" style="margin-right: 8px;"></i>Mainnet
+            </button>
+            <button class="tab-btn" data-tab="Testnet" style="background-color: #333; color: #fff; padding: 10px 20px; border: none; border-radius: 5px;">
+                <i class="fas fa-flask" style="margin-right: 8px;"></i>Testnet
+            </button>
+            <button class="tab-btn" data-tab="Archive" style="background-color: #ff0000; color: #fff; padding: 10px 20px; border: none; border-radius: 5px;">
+                <i class="fas fa-archive" style="margin-right: 8px;"></i>Archive
+            </button>
+        </div>
+
+        <section id="networks-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 20px;">
+            <!-- Konten akan diupdate dengan JavaScript -->
+        </section>
+
+    </section>
+</Layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll('.tab-btn');
+        const networksContainer = document.getElementById('networks-container');
+    
+        const networks = [
+            { name: 'Symphony', category: 'Testnet', serviceLink: '#', explorerLink: '#', logo: '/images/symphoni.jpg' },
+            { name: 'Dill', category: 'Testnet', serviceLink: '#', explorerLink: '#', logo: '/images/dill.jpg' },
+            { name: 'Chainbase', category: 'Testnet', serviceLink: '#', explorerLink: '#', logo: 'images/chainbase.jpg' },
+            { name: 'Sending Network', category: 'Testnet', serviceLink: '#', explorerLink: '#', logo: 'images/sending.jpg' },
+            { name: 'PWR Chain', category: 'Testnet', serviceLink: '#', explorerLink: '#', logo: 'images/pwr.jpg' },
+            { name: 'Shardeum', category: 'Testnet', serviceLink: '#', explorerLink: '#', logo: 'images/shardeum.jpg' },
+            { name: 'Sonaric', category: 'Testnet', serviceLink: '#', explorerLink: '#', logo: 'images/sonaric.png' },
+            { name: 'Dymension', category: 'Archive', serviceLink: '#', explorerLink: '#', logo: 'images/dymension.jpg' },
+            { name: 'Over Protocol', category: 'Archive', serviceLink: '#', explorerLink: '#', logo: 'images/over.jpg' },
+            { name: 'Stratis EVM', category: 'Archive', serviceLink: '#', explorerLink: '#', logo: 'images/stratis.jpg' },
+            { name: 'Dusk', category: 'Mainnet', serviceLink: '#', explorerLink: '#', logo: 'images/dusk.jpg' },
+            { name: 'Nubit', category: 'Testnet', serviceLink: '#', explorerLink: '#', logo: 'images/nubit.jpg' },
+            { name: 'Avail', category: 'Archive', serviceLink: '#', explorerLink: '#', logo: 'images/avail.png' }
+        ];
+    
+        const renderNetworks = (category) => {
+            networksContainer.innerHTML = '';  // Clear existing content
+    
+            const selectedNetworks = category === 'all' ? networks : networks.filter(network => network.category === category);
+    
+            selectedNetworks.forEach(network => {
+                const networkElement = document.createElement('div');
+                networkElement.style.cssText = "background-color: #222; padding: 20px; border-radius: 10px; display: flex; flex-direction: column; align-items: center;";
+                
+                const logo = document.createElement('img');
+                logo.src = network.logo;
+                logo.alt = network.name;
+                logo.style.cssText = "width: 50px; height: 50px; border-radius: 50%; margin-bottom: 10px;";
+                
+                const name = document.createElement('h2');
+                name.textContent = network.name;
+                name.style.color = '#fff';
+                
+                const serviceLink = document.createElement('a');
+                serviceLink.href = network.serviceLink;
+                serviceLink.textContent = 'Service';
+                serviceLink.style.cssText = "background-color: #333; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 10px;";
+                
+                const explorerLink = document.createElement('a');
+                explorerLink.href = network.explorerLink;
+                explorerLink.textContent = 'Explorer';
+                explorerLink.style.cssText = "background-color: #ff0000; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 10px;";
+                
+                networkElement.appendChild(logo);
+                networkElement.appendChild(name);
+                networkElement.appendChild(serviceLink);
+                networkElement.appendChild(explorerLink);
+    
+                networksContainer.appendChild(networkElement);
+            });
+        };
+    
+        // Initial render
+        renderNetworks('all');
+    
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                // Remove active class from all tabs
+                tabs.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to the clicked tab
+                tab.classList.add('active');
+                
+                // Render the selected category
+                const selectedCategory = tab.getAttribute('data-tab');
+                renderNetworks(selectedCategory);
+            });
+        });
+    });
+    </script>
+    
+    <style>
+    .tab-btn.active {
+        background-color: #00FF00 !important;
+        color: #000 !important;
+    }
+    </style>
